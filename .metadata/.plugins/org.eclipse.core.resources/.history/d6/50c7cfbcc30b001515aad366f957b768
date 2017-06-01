@@ -1,0 +1,238 @@
+package realapp;
+
+//Continue to add comments
+//remember to extend/implement certain classes
+//force application to stay vertical
+//look into table rows for the buttons
+
+
+public class MyMain /*extends Activity implements onClickListener*/{
+	
+	public static void main(String[] args)
+	{
+		int b = 5;
+		String a = String.valueOf(b);
+		
+		System.out.println(a);
+		
+	}
+/*
+ //Buttons that correspond to the buttons in the layout
+ * Button aButton;
+ * Button bButton...
+ * 
+ * private long freq = 0;
+ * 
+ * private PdUiDispatcher dispatcher;
+ * 
+ //The number displayed telling you to tighten and loosen
+ * TextView number;
+ * 
+ * private PdService pdService = null;
+ 	
+ 	private final ServiceConnection pdConnection = new ServiceConnection()
+ 	{
+ 		@Override
+ 		public void onServiceConnected(ComponentName n, IBinder s)
+ 		{
+ 			pdService = ((PdService.PdBinder)service).getService();
+ 			try{
+ 				initPd();
+ 				//don't think I need to call load patch
+ 			}catch{
+ 				finish();
+ 			}
+ 		}
+ 		
+ 		@Override
+ 		public void onServiceDisconnected(Component n){
+ 			//will never be called
+ 		}
+ 	};
+  
+ 
+//on create method that sets everything up when the java class and layout corresponding to 
+//it are first looked at by either the phone or another class
+  
+ 	public void onCreate(Bundle b)
+ 	{
+ 		super.onCreate(b);
+ 		setContentView(R.id.splash_opening);
+ 		
+ 		number = (TextView) findViewById (R.id.number);
+ 	
+ 		initSystemServices();
+ 		bindService(new Intent(this, PdService.class), pdConnection, DIND_AUTO_CREATE);
+ 	
+ 		//sets the buttons to the buttons in the layout
+ 		aButton = (Button) findViewById(R.id.aString);
+ 		aButton.setOnClickListener(this);
+ 		...
+ 	
+ 	}
+ 	
+ 	public void onDestroy()
+ 	{
+ 		super.onDestroy();
+ 		unbindService(pdConnection);
+ 	}
+ 	
+ 	public void initPd() throws IOException
+ 	{
+ 		AudioParameters.inti(this);
+ 		int sampleRate = AudioParameters.suggestSampleRate();
+ 		pdService.initAudio(sampleRate, 1, 2, 10.0f);
+ 		start();
+ 		
+ 		dispatcher = new PdUiDispatcher();
+ 		PdBase.setReciever(dispatcher);
+ 		dispatcher.addListener("pitch", new PdListener.Adapter()
+ 		{
+ 			@Override
+ 			public void receiveFloat(String s, final long x)
+ 			{
+ 				number.setText(x);
+ 			}
+ 		});
+ 	}
+ 	
+ 	private void start()
+ 	{
+ 		if(!pdService.isRunning())
+ 		{
+ 			Intent i = new Intent(///////////);
+ 			pdService.startAudio(i);
+ 		}
+ 	}
+ 	
+ 	private void loadPatch() throws IOException
+ 	{
+ 		/////don't think I need
+ 		/////will never be called
+ 	}
+ 
+ 	private void initSystemServices()
+ 	{
+ 		TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+ 		
+ 		tm.listen(new PhoneStateListener()
+ 		{
+ 			@Override
+ 			public void onCallStateChanged(int s, String income)
+ 			{
+ 				if(pdService==null)
+ 				{
+ 					return;
+ 				}
+ 				if(s == tm.CALL_STATE_IDLE)
+ 				{
+ 					start();
+ 				}else{
+ 					pdService.stopAudio();
+ 				}
+ 			}
+ 		}, PhoneStateListener.LISTEN_CALL_STATE);
+ 	}
+ 	
+ 	private void triggerNote(int n)
+ 	{
+ 		PdBase.sendFloat( "midinote" , n );
+ 		PdBase.sendBang("trigger");
+ 	}
+ 
+ 
+ /////Individual Notes/Buttons methods
+ 
+ 	public void lowE()
+ 	{
+ 		//connection the mp3 file of what
+ 		//it should sound like is already implemented
+ 		//at home
+ 		  
+ 		triggerNote(40);
+ 		number.setText(String.valueOf());
+ 		number.(suggestInputChannels());
+ 	}
+ 	
+ 	public void highE()
+ 	{
+ 		//connection the mp3 file of what
+ 		//it should sound like is already implemented
+ 		//at home
+ 		 
+ 		triggerNote(64); 
+ 	}
+ 	
+ 	public void aString()
+ 	{
+ 		//connection the mp3 file of what
+ 		//it should sound like is already implemented
+ 		//at home
+ 		 
+ 		triggerNote(45); 
+ 	}
+ 	
+ 	public void bString()
+ 	{
+ 		//connection the mp3 file of what
+ 		//it should sound like is already implemented
+ 		//at home
+ 		 
+ 		triggerNote(59); 
+ 	}
+ 	
+ 	public void dString()
+ 	{
+ 		//connection the mp3 file of what
+ 		//it should sound like is already implemented
+ 		//at home
+ 		
+ 	 	triggerNote(50);
+ 	}
+ 	
+ 	public void gString()
+ 	{
+ 		//connection the mp3 file of what
+ 		//it should sound like is already implemented
+ 		//at home
+ 		
+ 	 	triggerNote(55);
+ 	}
+ 
+ 
+
+HOW DO I DISPLAY A NUMBER VALUE FOR THE APPLICATION AND WHAT WILL THAT NUMBER VALUE REPRESENT
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+METHODS THAT MAY HAVE TO DO WITH THE NUMBER VALUE
+***************************************************************************
+ 
+	public void onClick(View v)
+	{
+		switch(viewbyId)
+		{
+			cases:
+				triggerNote(number);
+				.........
+				
+		}
+	}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ */
+}
